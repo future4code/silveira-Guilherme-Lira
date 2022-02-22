@@ -86,18 +86,18 @@ if (genero1 == "fantasia" && preco1 < 15){
     console.log("Escolha outro filme :(")
 }
 
-// DESAFIO 2 -- NÃO FUNCIONA
+// DESAFIO 2 
 
 const nome = prompt("Qual o seu nome completo?")
 const tipo = prompt("Qual o tipo de jogo? (IN ou DO)")
-const etapa = prompt("Qual a etapa do jogo? (SF, DT ou FI)")
+const etapa = prompt("Qual a etapa do jogo? (ST, DT ou FI)")
 const categoria = Number(prompt("Qual a categoria? (1, 2, 3 ou 4)"))
 const quantidade = Number(prompt("Quantos ingressos você quer?"))
 var preco = 1;
 
 function internacional(a){
-    a = a*(4,10)
-    return a
+    a = a/(4.10)
+    return a;
 }
 
 function numIngressos(preco,Ingressos){
@@ -106,68 +106,55 @@ function numIngressos(preco,Ingressos){
 }
 
 function semi(a){
-    switch (a){
-        case "1": preco = 1.320,00
-        break
-        case "2": preco = 880,00
-        break
-        case "3": preco = 550,00
-        break
-        case "4": preco = 220,00
-        break
+    if(a == 1){
+        preco = 1320,00
+    } else if (a == 2){
+        preco = 880,00
+    } else if (a == 3) {
+        preco = 550,00
+    } else {
+        preco = 220,00
     }
 }
 
 function decisao(a){
-    switch (a){
-        case "1": preco = 660,00
-        break
-        case "2": preco = 440,00
-        break
-        case "3": preco = 330,00
-        break
-        case "4": preco = 170,00
-        break
+    if(a == 1){
+        preco = 660,00
+    } else if (a == 2){
+        preco = 440,00
+    } else if (a == 3) {
+        preco = 330,00
+    } else {
+        preco = 170,00
     }
 }
 
 function final(a){
-    switch (a){
-        case "1": preco = 1.980,00 
-        break
-        case "2": preco = 1.320,00
-        break
-        case "3": preco = 880,00
-        break
-        case "4": preco = 330,00
-        break
+    if(a == 1){
+        preco = 1980,00
+    } else if (a == 2){
+        preco = 1320,00
+    } else if (a == 3) {
+        preco = 880,00
+    } else {
+        preco = 330,00
     }
 }
 
-console.log("O preço é", preco)
-
-// switch(etapa){
-//     case "ST": semi(categoria)
-//     break
-//     case "DT": decisao(categoria)
-//     break
-//     case "FI": final(categoria)
-//     break
-// }
-
-if (tipo === "ST"){
-    preco = semi(categoria)
-} else if (tipo === "SF"){
-    preco = decisao(categoria)
-} else {
-    preco = final(categoria)
+switch(etapa){
+    case "ST": semi(categoria)
+    break
+    case "DT": decisao(categoria)
+    break
+    case "FI": final(categoria)
+    break
 }
 
-console.log("O preço2 é", preco)
+if (tipo === "IN"){
+    preco = internacional(preco)
+}
 
 const precoF = numIngressos(preco,quantidade)
-
-console.log("O preço final é", precoF)
 
 console.log("--- Dados da compra ---")
 console.log("Nome do cliente:", nome)
