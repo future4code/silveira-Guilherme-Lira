@@ -1,0 +1,22 @@
+ol {
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 70%; 
+    margin-left:13%; 
+    margin-right:15%;
+}
+
+body {
+    background-color: #e2f5dc;
+    text-align: center;
+}
+
+p {
+    font-size: 15px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+a {
+    margin-left: 50px;
+}
