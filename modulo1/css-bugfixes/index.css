@@ -24,6 +24,7 @@ input {
 
 button:focus {
     color: white;
+
 }
 
 img {
@@ -141,5 +142,9 @@ td button {
 }
 
 #back-button:hover {
-    background-color: #635a3d
+    background-color: #3a3526
+}
+
+#back-button:active{
+    color:white;
 }
