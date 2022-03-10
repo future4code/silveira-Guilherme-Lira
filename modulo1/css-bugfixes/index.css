@@ -7,6 +7,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto';
 }
 
 h2 {
@@ -26,15 +27,15 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 80px;
 }
 
 div>p:first-child {
     display: inline;
 }
 
-div img {
-    background: black;
+.space {
+    margin-top: 50px;
 }
 
 .botao-amarelo {
@@ -59,7 +60,6 @@ div img {
     height: 15px;
 }
 
-
 /** 
   *
   *  ESTILOS HOME 
@@ -72,24 +72,30 @@ div img {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 20px;
+}
+
+#container-de-descricao>li {
+    text-align: center;
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
-    
+    padding: 100 0px;
+    margin: 0 auto;
 }
 
 #container-para-comprar {
     background-color: #e7eb90;
+    text-align: center;
 }
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
+    padding: 10px;
     font-size: 60px;
+    text-align: center;
+    font-style: arial;
 }
-
 
 /**
   *
@@ -103,7 +109,11 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 td button {
