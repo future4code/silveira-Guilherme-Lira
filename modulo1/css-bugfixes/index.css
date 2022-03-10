@@ -69,10 +69,15 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
 }
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    
 }
 
 #container-para-comprar {
