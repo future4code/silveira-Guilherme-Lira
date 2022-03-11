@@ -1,0 +1,31 @@
+td {
+    color: black;
+}
+
+body{
+    text-align: center;
+    background-color: #e2f5dc;
+}
+
+tr {
+    text-align: center;
+}
+
+table {
+    border: 2px solid;
+    border-collapse: collapse;
+    width: 70%; 
+    margin-left:15%; 
+    margin-right:15%;
+}
+
+img {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 2px;
+    width: 150px;
+}
+
+a {
+    margin-left: 50px;
+}

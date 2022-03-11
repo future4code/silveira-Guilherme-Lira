@@ -1,0 +1,19 @@
+body {
+    background-color: #e2f5dc
+}
+
+form {
+  position:relative;
+  left:37%;
+  top:29%;
+  width:320px;
+  height:270px;
+}
+
+p, div, h2{
+    text-align: center;
+}
+
+a {
+  margin-left: 50px;
+}

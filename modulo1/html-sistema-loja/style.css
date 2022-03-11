@@ -1,0 +1,25 @@
+p {
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #8d7cff;
+    font-size: 30px;
+    text-align: center;
+}
+
+body{
+    background-color: #7cdaff;
+    text-align: center;
+}
+
+p1 {
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+a {
+    margin-left: 50px;
+}
