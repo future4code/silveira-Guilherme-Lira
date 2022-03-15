@@ -1,0 +1,186 @@
+* {
+    margin: 0px;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body,html {
+    background-image: url(img/FUNDO.jpg);
+    background-size: 2500px 800px;
+    /* min-height: 200%; */
+}
+
+/* CSS REFERENTE A PÁGINA DO PORTIFOLIO */
+
+nav{
+    display: flex;
+    width: 85%; /* Move as opções para a direita */
+    margin: auto;
+    padding: 20px 0; /* Distancia os itens do topo da página */
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul li{
+    display: inline-block; /* Coloca os itens lado a lado */
+    /* list-style: none; */
+    margin: 10px 10px; /* Distanciando 10 px do topo da tela e 10 px entre cada item. */
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: red;
+}
+
+.detel{
+    margin-left: 8%;
+    margin-top: 10%;
+}
+
+.detel h1{
+    font-size: 50px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.detel h2{
+    font-size: 20px;
+    color: black;
+    margin-top: 30px;
+    
+}
+
+span{
+    color:blue;
+}
+
+.detel p{
+    color: #555;
+    line-height: 15px;
+}
+
+.detel a{
+    background: #212121;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.images {
+    width: 45%;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+}
+
+.images img{
+    height: 60%;
+    position:absolute;
+    left:50%;
+    bottom:40%;
+    transform: translateX(-50%);
+    transition: bottom 1s, left 1s;
+}
+
+/* CSS REFERENTE A PÁGINA DA JORNADA */
+
+.detel2{
+    margin-left: 8%;
+    margin-top: 10%;
+    color:black;
+}
+
+.detel2 h3 {
+    font-size: 30px;
+    color: black;
+
+}
+
+.detel2 p{
+    color: #555;
+    line-height: 15px;
+    margin-top: 10x;
+    margin-bottom: 5px;
+    margin-right: 500px;
+}
+
+ol,li,p {
+    text-align: initial;
+    font-weight: bold;
+    align-self: auto;
+    padding-top:0.5%;
+}
+
+.detel3 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 500px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.detel3 h4{
+    text-align: center;
+    padding-top: 50px;
+}
+
+
+.detel3 p, ol{
+    text-align: center;
+    padding-top: 50px;
+    font-weight: bold;
+}
+
+#center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px; 
+}
+
+.detel4 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.detel4 p{
+    text-align: center;
+    padding-top: 50px;
+}
+
+.images3 {
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+}
