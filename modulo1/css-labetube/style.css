@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+body {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
 header{
     background-color: orangered;
     display: flex;
@@ -55,7 +61,7 @@ main h2{
     width: 200px;
 }
 
-video {
+video{
     width: 1000px;
     height: 600px;
     
@@ -64,10 +70,11 @@ video {
 footer{
     background-color: rgb(49, 49, 49);
     grid-column: 1 / -1;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 50px;
-    bottom: 0px;
+    bottom: 0%; 
+    flex: 0 1 auto;
 }
 
 footer h5{
@@ -75,4 +82,29 @@ footer h5{
     color: white;
     font-size: 30px;
     text-align: center;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    /* celular */
+    main{   
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    footer{
+        background-color: rgb(49, 49, 49);
+        grid-column: 1 / -1;
+        width: 100%;
+        height: 50px;
+        /* bottom: -200%; */
+    }
+    
+    footer h5{
+        margin: 15px 10px;
+        color: white;
+        font-size: 5px;
+        text-align: center;
+    }
 }
