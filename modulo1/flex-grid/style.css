@@ -1,0 +1,113 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+}
+
+header {
+    background-color: mediumvioletred;
+    display: flex;
+    height: 50px;
+    text-align: auto;
+}
+
+button {
+    margin-left: 1200px;
+    height: 30px;
+    margin-top:10px;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.main-container{
+    display:flex;
+    min-height: calc(100vh - 120px);
+}
+
+.sidebar{
+    background-color: #f2d0e0;
+    display: flex;
+    width: 300px;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+}
+
+footer {
+    background-color: mediumvioletred;
+    display: flex;
+    height: 50px;
+    justify-content:center;
+    align-items:center;
+}
+
+p{
+    font-weight: bold;
+}
+
+.main-container .sidebar ul li{
+    display: flex;
+    font-size: 10px;
+    width: 250%;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.item {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    align-items: center;
+}
+  
+  .grid-item {
+
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.content .grid-container .grid-item{
+    width: 300px;
+    height: 300px;
+}
+
+.content .grid-container .grid-item img{
+    width: 250px;
+    height: 250px;
+}
+
+.content .grid-container .grid-item h3{
+    font-size: 30px;
+}
+
+.content .grid-container .grid-item p{
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+
