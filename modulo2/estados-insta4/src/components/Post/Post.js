@@ -45,21 +45,20 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    salvado: false
   }
 
-  // SomarCurtidas = () => {
-	// 	let valorAtual = this.state.ValorDoContador
-	// 	let novoValor = valorAtual + 1
-	// 	this.setState({ValorDoContador: novoValor})
-	// }
-
   onClickCurtida = () => {
+    if (this.state.curtido === false){
     this.setState({
-    // console.log('Curtiu!')
-    // numeroCurtidas: 1,
-    curtido: !this.state.curtido
-    })
+    curtido: !this.state.curtido,
+    numeroCurtidas: this.state.numeroCurtidas + 1
+    })} else {
+      this.setState({
+        curtido: !this.state.curtido,
+        numeroCurtidas: this.state.numeroCurtidas -1
+      })}
   }
 
   onClickComentario = () => {
@@ -74,6 +73,13 @@ class Post extends React.Component {
       numeroComentarios: this.state.numeroComentarios + 1
     })
   }
+
+  onClickSalvar = () => {
+    this.setState ({
+      salvado: !this.state.salvado
+    })
+  }
+
 
   render() {
     let iconeCurtida
