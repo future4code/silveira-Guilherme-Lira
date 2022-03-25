@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.todo{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(162, 224, 224);
+}
+
+.janelaMaior{
+  max-width: 600px;
+  height: 100vh;
+  border: 2px solid black;
+  flex: 1 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: white;
+}
+
+.botao {
+  width: 51px;
+}
+
+.conteudo{
+  flex: 1 1 0%;
+  width: 445px;
+}
+
+.usuario{
+  width: 100px;
+}
+
