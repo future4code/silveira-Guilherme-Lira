@@ -5,9 +5,17 @@ import Etapa2 from './components/Etapa2';
 import Etapa3 from './components/Etapa3';
 import Final from './components/Final';
 
-const Button = styled.div`
+
+const Button = styled.button`
 margin-top: 15px;
 text-align: center;
+`
+
+const All = styled.div`
+margin: 0;
+padding: 0;
+text-align: center;
+font-family: sans-serif;
 `
 
 class App extends React.Component {
@@ -33,20 +41,12 @@ class App extends React.Component {
     this.setState({ step: newPage });
   }
 
-  CheckPage = (step) => {
-    {step == '1' || step == '2' || step == '3' ? this.FindStep() : 0}
-  }
-
-
   render() {
     return (
-    <div>
-      {/* Step == '1' || Step == '2' || Step == '3' ? {this.FindStep()} : return 0 */}
-      {this.FindStep()} 
-      <Button>
-        <button onClick={this.CheckPage}>Próxima Etapa</button>
-      </Button>
-    </div>
+      <All>
+        {this.FindStep()}
+        {this.state.step >= 4 ? <p>Obrigado!</p> : <Button onClick={this.NextPage}>Próxima Etapa</Button>}
+      </All>
     );
   }
 }
