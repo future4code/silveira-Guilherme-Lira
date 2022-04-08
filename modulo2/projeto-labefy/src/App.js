@@ -22,14 +22,12 @@ const Menu = styled.div`
   display: flex;
   justify-content: space-around;
 `
-
 const Middle = styled.div`
   display: flex;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `
-
 const Main = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,7 +45,8 @@ const Footer1 = styled.div`
 
 export default class App extends React.Component {
   state = {
-    page: "addplaylist"
+    page: "addplaylist",
+    idOfPlaylist: ""
   }
 
   changeScreen = () => {
@@ -55,9 +54,9 @@ export default class App extends React.Component {
       case "addplaylist":
         return <AddPlaylist screenListPlaylist={this.screenListPlaylist}/>
       case "playlist":
-        return <ShowPlaylist screenAddPlaylist={this.screenAddPlaylist} screenDetsPlaylist={this.screenDetsPlaylist} />
+        return <ShowPlaylist screenAddPlaylist={this.screenAddPlaylist} screenDetsPlaylist={this.screenDetsPlaylist} idPlaylist={this.state.idOfPlaylist}/>
       case "detsplaylist":
-        return <DetsPlaylist />
+        return <DetsPlaylist idPlaylist={this.state.idOfPlaylist}/>
       default:
         return <div> Pagina não encontrada! </div>
     }
@@ -71,8 +70,8 @@ export default class App extends React.Component {
     this.setState({ page: "playlist" })
   }
 
-  screenDetsPlaylist = () => {
-    this.setState({ page: "detsPlaylist" })
+  screenDetsPlaylist = (idPlaylist) => {
+    this.setState({ page: "detsplaylist", idOfPlaylist:idPlaylist })
   }
 
   render() {
@@ -84,7 +83,6 @@ export default class App extends React.Component {
             <Menu>
             <button onClick ={this.screenAddPlaylist}><a>Adicionar Playlist</a></button>
             <button onClick ={this.screenListPlaylist}><a>Ver Playlists</a></button>
-            <button onClick ={this.screenDetsPlaylist}><a>Ver Detalhes</a></button>
             </Menu>
           </Header1>
         </Header>

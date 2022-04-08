@@ -34,7 +34,6 @@ getPlaylist = () => {
     axios
         .get("https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists", headers)
         .then((res) => {
-            console.log(res.data);
             this.setState({playlist: res.data.result.list});
         })
         .catch((err) => {
@@ -59,7 +58,7 @@ deletePlaylist = (playlistId) => {
     const listPlaylist = this.state.playlist.map((play) => {
         return (
         <CardUser key={play.id}>
-            <button onClick={this.props.screenDetsPlaylist}>{play.name}</button> 
+            <button onClick={() => this.props.screenDetsPlaylist(play.id)}>{play.name}</button> 
             <button onClick={() => this.deletePlaylist(play.id)}>❌</button>
         </CardUser>
         )
