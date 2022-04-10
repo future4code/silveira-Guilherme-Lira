@@ -8,6 +8,13 @@ const headers = {
   }
 };
 
+const Audio = styled.iframe`
+  margin: 0 0;
+  text-align: center;
+  cursor: pointer;
+  height: 4vh;
+`;
+
 const CardUser = styled.div`
     display: flex;
     flex-direction: column;
@@ -17,11 +24,14 @@ const CardUser = styled.div`
     margin: 10px;
     border-radius: 40px;
     border: 2px solid black;
-    height: 250px;
+    height: 190px;
     p {
         font-weight: bolder;
         font-size: medium;
     }
+`
+const MusicContainer = styled.div`
+    display: flex;
 `
 
 export default class DetsPlaylist extends React.Component {
@@ -48,22 +58,20 @@ onChangeNameUrl = (e) => {
 };
 
   getPlaylist = () => {
-    axios.get(this.props.idPlaylist)
-    .then((res) => this.setState({playlist: res.data}))
+    axios
+    .get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.idPlaylist}/tracks`, headers)
+    .then((res) => this.setState({playlist: res.data.result.tracks}))
     .catch((err) => console.log(err.response))
   }
 
-  addTrackToPlaylist = (idPlaylist) => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.idPlaylist}/tracks`
-    const body = {
-        name: this.state.nameSong,
-        artist: this.state.nameArtist,
-        url: this.state.nameUrl
-  }
+  addTrackToPlaylist = () => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.idPlaylist}/tracks`
+    const body = {nameSong: this.state.nameSong, nameArtist: this.state.nameArtist, nameUrl: this.state.nameUrl}
   axios
   .post(url, body, headers)
   .then((res) => {
-    this.setState({nameSong: ""}, {nameArtist: ""}, {nameUrl: ""})
+    this.setState({nameSong: "", nameArtist: "", nameUrl: ""})
+    this.getgetPlaylist();
     alert(`Música adicionada com sucesso!`)
   })
   .catch((err) => {
@@ -81,7 +89,6 @@ onChangeNameUrl = (e) => {
         this.setState({
             songs: res.data.result.tracks,
             playlistId: idPlaylist,
-            button: <div onClick={() => this.addTrackToPlaylist(this.state.playlistId)}>Add Track</div>
         })
     })
     .catch((err) => {
@@ -94,9 +101,11 @@ onChangeNameUrl = (e) => {
     const PlaylistDetails = this.state.songs.map((song) => {
       return (
         <CardUser>
-          <p>Nome: {song.name}</p>
+          <p key={song.id}>Nome: {song.name}</p>
           <p>Artista: {song.artist}</p>
-          <iframe src={song.url} width="60%" height="80" frameBorder="0" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          <Audio controls src={song.url}>
+          <Audio src={song.url}> type={"audio/mp3"}</Audio>
+          </Audio>
         </CardUser>
       )
     }
@@ -106,14 +115,13 @@ onChangeNameUrl = (e) => {
     <div>
       <h3>AQUI ESTÃO AS MÚSICAS DESSE PLAYLIST</h3>
          {PlaylistDetails}
-         {/* {this.props.idPlaylist} */}
       <h2> UTILIZE O ESPAÇO ABAIXO PARA ADICIONAR UMA NOVA MÚSICA A ESSA LISTA. </h2>
-        <div>
+      <MusicContainer>
             <input placeholder="Nome" type="text" value={this.state.nameSong} onChange={this.onChangeNameSong} />
             <input placeholder="Artista" type="text" value={this.state.nameArtist} onChange={this.onChangeNameArtist} />
             <input placeholder="Url da Música" type="text" value={this.state.nameUrl} onChange={this.onChangeNameUrl} />
-            <button onClick={this.addTrackToPlaylist(this.props.idPlaylist)}> Criar Playlist </button>
-        </div>
+            <button onClick={this.addTrackToPlaylist}> Criar Playlist </button>
+      </MusicContainer>
       </div>
     )
   }
