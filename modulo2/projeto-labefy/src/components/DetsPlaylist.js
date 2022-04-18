@@ -60,13 +60,13 @@ onChangeNameUrl = (e) => {
   getPlaylist = () => {
     axios
     .get(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.idPlaylist}/tracks`, headers)
-    .then((res) => this.setState({playlist: res.data.result.tracks}))
+    .then((res) => this.setState({songs: res.data.result.tracks}))
     .catch((err) => console.log(err.response))
   }
 
   addTrackToPlaylist = () => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.idPlaylist}/tracks`
-    const body = {nameSong: this.state.nameSong, nameArtist: this.state.nameArtist, nameUrl: this.state.nameUrl}
+    const body = {name: this.state.nameSong, artist: this.state.nameArtist, url: this.state.nameUrl}
   axios
   .post(url, body, headers)
   .then((res) => {
