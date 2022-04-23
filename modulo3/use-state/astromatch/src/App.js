@@ -1,19 +1,29 @@
 import React, { useState } from 'react'
 import Profile from "./components/Profile/Profile";
 import Match from "./components/Match/Match"
+import PersonIcon from '@mui/icons-material/Person';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
+import logo from './img/logo.png'
 import styled from 'styled-components';
-import Header from "./Header"
 
-const ProfileContainer = styled.div`
-  width: 400px;
-  height: 720px;
-	position: fixed;
-	top: 45%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-  border: 1px solid black;
+const Main = styled.div`
   background-color: white;
-  box-shadow: 0 0 5px #0000000F;
+`
+const HeaderContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #f9f9f9;
+    align-items: center;
+    background-color: white;
+    .header_logo{
+        height: 40px;
+        object-fit: contain;
+    }
+
+    .header_icon{
+        padding: 20px;
+    }
 `
 
 export default function App() {
@@ -22,9 +32,9 @@ export default function App() {
   const chosePage = () => {
     switch (page) {
       case "profile":
-        return <Profile goToMatch={goToMatch} />
+        return <Profile goToMatch={goToMatch} goToProfile={goToProfile}/>
       case "matches":
-        return <Match goToProfile={goToProfile} />
+        return <Match goToProfile={goToProfile} goToMatch={goToMatch}/>
       default:
         return <Profile />
     }
@@ -39,11 +49,17 @@ export default function App() {
   }
 
   return (
-  <div>
-  <Header />
-      <ProfileContainer>
-        {chosePage()}
-      </ProfileContainer>
-  </div>
+    <Main>
+       <HeaderContainer>
+            <IconButton>
+                <PersonIcon onClick={goToProfile} className='header_icon' fontSize='large' />
+            </IconButton>
+                <img className="header_logo" src={logo} alt="logo" />
+            <IconButton>
+                <FavoriteIcon onClick={goToMatch} className='header_icon' fontSize='large' />
+            </IconButton>
+        </HeaderContainer >
+      {chosePage()}
+    </Main>
   );
 }

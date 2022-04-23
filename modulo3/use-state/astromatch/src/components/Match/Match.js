@@ -3,14 +3,29 @@ import axios from 'axios'
 import styled from 'styled-components';
 
 const MatchCard = styled.div`
+    margin-top: 15px;
     border: 1px outset grey;
+    width: 500px;
+    height: 150px;
+    align-content: center;
+    align-items: center;
     img {
-        height: 50px;
-        width: 50px;
+        height: 100px;
+        width: 100px;
+        margin-left: 10px;
+        border: 1px outset black;
     }
-    p {
+    h2 {
         display: inline-block;
+        margin-left: 10px;
     }
+`
+
+const MatchesContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 `
 
 const aluno = "Guilherme-Lira-Silveira"
@@ -38,24 +53,22 @@ const Match = (props) => {
         })
     }
 
-    useEffect(() => {
-        getMatches()}, [])
+    useEffect(() => {getMatches()}, [])
 
     const listMatch = matches.map((prof) => {
         return (
             <MatchCard key={prof.id}>
-                <p><img src={prof.photo} alt="ProfilePicture"/></p> <p>{prof.name}</p>
+                <h2><img src={prof.photo} alt="ProfilePicture"/></h2> <h2>{prof.name}</h2>
             </MatchCard>
         )
     })
 
     return (
-        <div>
+        <MatchesContainer>
         <h1> Página de Matches </h1> 
-        <button onClick={props.goToProfile}> Voltar </button>
         <button onClick={clearMatches}> Limpar Matches </button>
         { listMatch.length > 0 ? listMatch : <p>Você ainda não possui Matches! Continue tentando!</p>}
-        </div>
+        </MatchesContainer>
     )
 }
 export default Match;
