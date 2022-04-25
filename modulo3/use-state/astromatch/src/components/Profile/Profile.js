@@ -29,10 +29,12 @@ const Card = styled.div`
         bottom: 20px;
         color: white;
         font-size: 30px;
+        left: 20px;
     }
     p {
         position: absolute;
         bottom: -5px;
+        left: 20px;
         color: white; 
         font-size: 15px;
     }

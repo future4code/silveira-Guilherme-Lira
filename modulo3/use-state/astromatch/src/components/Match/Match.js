@@ -3,19 +3,18 @@ import axios from 'axios'
 import styled from 'styled-components';
 
 const MatchCard = styled.div`
-    margin-top: 15px;
-    border: 1px outset grey;
+    margin-top: 5px;
     width: 500px;
-    height: 150px;
+    height: 70px;
     align-content: center;
     align-items: center;
     img {
-        height: 100px;
-        width: 100px;
-        margin-left: 10px;
-        border: 1px outset black;
+    object-fit: cover;
+    border-radius:50%;
+    width: 50px;
+    height: 50px;
     }
-    h2 {
+    p {
         display: inline-block;
         margin-left: 10px;
     }
@@ -58,7 +57,7 @@ const Match = (props) => {
     const listMatch = matches.map((prof) => {
         return (
             <MatchCard key={prof.id}>
-                <h2><img src={prof.photo} alt="ProfilePicture"/></h2> <h2>{prof.name}</h2>
+                <img src={prof.photo} alt="ProfilePicture"/> <p>{prof.name}</p>
             </MatchCard>
         )
     })
