@@ -1,6 +1,7 @@
 import React from "react";
-import { Header, WebSite } from './components/main/Header'
+import { Header } from './components/main/Header'
 import { Footer } from './components/main/Footer'
+import { WebSite } from "./components/main/styles";
 import { Router } from "./routes/Router";
 
 function App() {

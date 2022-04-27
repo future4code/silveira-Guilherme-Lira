@@ -3,7 +3,7 @@ export const goToHomePage = (navigate) => {
 }
 
 export const goToAdmin = (navigate) => {
-    navigate("/admin/trips/create")
+    navigate("/admin/trips/list")
 }
 
 export const goToApplication = (navigate) => {

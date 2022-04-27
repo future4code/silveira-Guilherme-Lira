@@ -1,7 +1,7 @@
 // Para vermos todas as viagens
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { goToApplication } from '../routes/coordinator'
+import { goToApplication, goBack } from '../routes/coordinator'
 import axios from "axios" 
 import styled from 'styled-components'
 
@@ -28,6 +28,19 @@ const TripCard = styled.div`
     height: 200px;
     margin-top: 10px;
     margin-bottom: 10px;
+`
+
+const ButtonPhysics = styled.div`
+    display: flex;
+    button{
+        width: 200px;
+    }
+    .btn1 {
+        margin-right: 50px;
+    }
+    .btn2 {
+        margin-left: 50px;
+    }
 `
 
 export function ListTripsPage() {
@@ -61,7 +74,10 @@ export function ListTripsPage() {
     return (
       <ContainerTripCard>
         <h1> PÁGINAS COM A LISTA DE VIAGENS </h1>
-        <button onClick={() => goToApplication(navigate)}> Se Inscrever</button>
+        <ButtonPhysics>
+        <button className="btn1" onClick={() => goBack(navigate)}> Voltar</button>
+        <button className="btn2" onClick={() => goToApplication(navigate)}> Se Inscrever</button>
+        </ButtonPhysics>
         {listTrip}
       </ContainerTripCard>
     );
