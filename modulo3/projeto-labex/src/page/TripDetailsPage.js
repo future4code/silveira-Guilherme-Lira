@@ -1,33 +1,45 @@
 // Para o administrador ver o detalhe de uma viagem específica, bem como os candidatos que aplicaram para ela
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ContainerForm } from "../components/main/styles";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { useProtectedPage } from '../components/main/Protect'
 
 const aluno = 'Guilherme-Lira-Silveira'
-const idTeste = '0aQ9retlt9zxpeo40G2M'
-const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trip/${idTeste}`
+const header = { headers: { auth: localStorage.getItem("token") } }
 
 export function TripDetailsPage() {
     const navigate = useNavigate()
+    const [detailsTrip, setDetailsTrip] = useState({
+        candidates: [],
+        approved: [],
+    });
+    const { id } = useParams();
+
+    useProtectedPage()
+
+    const getDetailsTrip = (id) => {
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trip/${id}`;
+        axios
+            .get(url, header)
+            .then((res) => {
+                setDetailsTrip(res.data.trip);
+            })
+            .catch((er) => {
+                console.log(er.data);
+            });
+    };
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        axios.get(url, {
-            headers: {auth: token}
-        })
-        .then((res) => {
-            console.log('Deu bom:', res.data.trip)
-        }).catch((er) => {
-            console.log('Deu ruim:', er.response)
-        })
-    }, [])
-  
+        getDetailsTrip(id);
+    }, []);
+
+
     return (
-      <ContainerForm>
-       <h1> Para o administrador ver o detalhe de uma viagem específica, bem como os candidatos que aplicaram para ela</h1>
-      </ContainerForm>
+        <ContainerForm>
+            <h1> Para o administrador ver o detalhe de uma viagem específica, bem como os candidatos que aplicaram para ela</h1>
+        </ContainerForm>
     )
-  }
-  
-  export default TripDetailsPage;
+}
+
+export default TripDetailsPage;

@@ -3,45 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { goToApplication, goBack } from '../routes/coordinator'
 import axios from "axios" 
-import styled from 'styled-components'
+import { ButtonPhysics, TripCard, ContainerTripCard } from '../components/main/styles'
 
 const aluno = "Guilherme-Lira-Silveira"
 const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips`
 
-const ContainerTripCard = styled.div`
-    display: flex;
-    flex-direction: column;
-    grid-area: main;
-    text-align: center;
-    background-color: white;
-    align-items: center;
-    button {
-        width: 100px;
-    }
-`
-
-const TripCard = styled.div`
-    grid-area: main;
-    text-align: center;
-    border: 1px solid black;
-    width: 800px;
-    height: 200px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-`
-
-const ButtonPhysics = styled.div`
-    display: flex;
-    button{
-        width: 200px;
-    }
-    .btn1 {
-        margin-right: 50px;
-    }
-    .btn2 {
-        margin-left: 50px;
-    }
-`
 
 export function ListTripsPage() {
     const navigate = useNavigate()
@@ -53,7 +19,6 @@ export function ListTripsPage() {
         axios.get(url)
         .then((res) => {
         setTripList(res.data.trips)
-        console.log(res.data.trips)
         }).catch((er) => {
             console.log(er)
         }

@@ -1,8 +1,9 @@
 // Formulário para o administrador criar uma nova viagem
 import React, { useEffect, useState } from 'react'
-import { goBack } from '../routes/coordinator'
+import { goBack, goToLogin } from '../routes/coordinator'
 import { useNavigate } from 'react-router-dom'
 import { ContainerForm, FillForm, ButtonPhysics } from "../components/main/styles";
+import { useProtectedPage } from '../components/main/Protect'
 import axios from "axios" 
 
 const aluno = "Guilherme-Lira-Silveira"
@@ -12,6 +13,8 @@ const headers = {headers: {auth: localStorage.getItem("token")}}
 export function CreateTripPage() {
     const navigate = useNavigate()
     const [tripList, setTripList] = useState ([])
+
+    useProtectedPage()
 
     return (
       <ContainerForm>
@@ -29,10 +32,10 @@ export function CreateTripPage() {
 
        <input placeholder={"Duração em dias"} type={"number"} name={"durationInDays"} /* value={#} onChange={onChange} */ required min={50}/>
         </FillForm>
-        <ButtonPhysics>
+      <ButtonPhysics>
       <button className="btn1" onClick={() => goBack(navigate)}> Voltar</button>
       <button className="btn2"> Criar</button>
-    </ButtonPhysics>
+      </ButtonPhysics>
       </ContainerForm>
     );
   }

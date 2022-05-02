@@ -76,3 +76,47 @@ export const FillFormLogin = styled.form`
         margin-bottom: 20px;
     }
 `
+
+export const ContainerTripCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    grid-area: main;
+    text-align: center;
+    background-color: white;
+    align-items: center;
+    button {
+        width: 100px;
+    }
+`
+
+export const TripCard = styled.div`
+    grid-area: main;
+    text-align: center;
+    border: 1px solid black;
+    width: 800px;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+`
+
+export const TripCardName = styled.div`
+    grid-area: main;
+    text-align: center;
+    border: 1px solid black;
+    width: 800px;
+    height: 110px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .btn3 {
+        margin-top: 10px;
+    }
+`
+
+export const ContainerTripCardName = styled.div`
+    display: flex;
+    flex-direction: column;
+    grid-area: main;
+    text-align: center;
+    background-color: white;
+    align-items: center;
+`
