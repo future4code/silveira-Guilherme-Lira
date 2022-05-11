@@ -3,10 +3,11 @@ import { FormContainer } from './styled'
 import { useNavigate } from "react-router-dom";
 import { goBack } from "../../routes/coordinator";
 import SignUpForm from "./SignUpForm";
+import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
 
 export function SignUp() {
+    useUnprotectedPage()
     const navigate = useNavigate()
-
     return (
       <FormContainer>
        <h1> Seja bem vinds a nossa página de cadastro !</h1>

@@ -11,9 +11,9 @@ export const Router = ()=> {
         <Routes>
           <Route index element={<Login />} />
           <Route path="/signup" element={< SignUp />} />
-          <Route path="/post" element={<Post />} />
+          <Route path="/post/:id" element={<Post />} />
           <Route path="/feed" element={<Feed />} />
-          <Route element={<Error/>} />
+          <Route path='*' element={<Error/>} />
         </Routes>
       </BrowserRouter>
     )

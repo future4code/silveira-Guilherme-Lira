@@ -1,13 +1,14 @@
 import React from "react";
-import { Header, WebSite } from './Header/Header'
+import { Header } from './Header/Header'
+import { WebSite } from "./Header/style";
 import { Footer } from './Footer/Footer'
 import { Router } from "./routes/Router";
 
 function App() {
   return (
     <WebSite>
-      <Header />
-      <Router />
+      <Header/>
+      <Router/>
       <Footer />
     </WebSite>
   );
