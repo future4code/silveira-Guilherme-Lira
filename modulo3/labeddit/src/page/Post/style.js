@@ -57,6 +57,8 @@ export const Button = styled.button`
 export const PostContainerFather = styled.div`
     display: flex;
     flex-direction: column;
+    width: 350px;
+    margin-bottom: 10px;
 `
 
 export const PostContainer = styled.div`
@@ -71,4 +73,16 @@ export const PostCard = styled.div`
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 10px;
+`
+export const IconLogic = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .uparrow{
+        margin-right: 5px;
+    }
+    .downarrow{
+        margin-right: 30px;
+        margin-left: 30px;
+    }
 `

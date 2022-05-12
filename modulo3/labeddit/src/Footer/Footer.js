@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const FooterContainer = styled.div`
     grid-area: footer;
-    background-color: #424B54;
+    background-color: orange;
     text-align: center;
 `
 

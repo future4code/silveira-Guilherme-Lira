@@ -15,11 +15,14 @@ export const WebSite = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   grid-area: header;
-  background-color: #93A8AC;
+  background-color: orange;
   align-items: center;
   justify-content: center;
   flex-direction: column-reverse;
   button{
     margin-right: 10px;
+  }
+  img {
+    margin-top: 10px;
   }
 `

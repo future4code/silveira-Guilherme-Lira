@@ -22,11 +22,15 @@ export const FormStyled = styled.form`
 export const Input = styled.input`
     width: 400px;
     height: 30px;
+    background-color: #DCDCDC;
+    border-radius: 15px;
 `
 
 export const TextArea = styled.textarea`
     width: 400px;
     height: 150px;
+    background-color: #DCDCDC;
+    border-radius: 15px;
 `
 
 export const Button = styled.button`
@@ -34,11 +38,16 @@ export const Button = styled.button`
     height: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 10px;
 `
 
 export const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
+    width: 350px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin-bottom: 5px;
 `
 
 export const PostCard = styled.div`
@@ -46,5 +55,21 @@ export const PostCard = styled.div`
     flex-direction: column;
     border: 1px solid black;
     border-radius: 5px;
-    margin-bottom: 10px;
+`
+export const IconLogic = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    .uparrow{
+        margin-right: 5px;
+    }
+    .downarrow{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+`
+
+export const ActionCard = styled.div`
+    display: flex;
+    flex-direction: column;
 `
