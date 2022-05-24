@@ -1,0 +1,11 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && node ./index2.js"
+  },
+  "author": "Guilherme Lira",
+  "license": "ISC"
+}
