@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/index7.js"
+    "start1": "tsc && node ./build/index1.js",
+    "start2": "tsc && node ./build/index.js",
+    "start3": "tsc && node ./build/index3.js",
+    "start4": "tsc && node ./build/index4.js",
+    "start5": "tsc && node ./build/index5.js",
+    "start6": "tsc && node ./build/index6.js",
+    "start7": "tsc && node ./build/index7.js",
+    "start8": "tsc && node ./build/index8.js"
   },
   "keywords": [],
   "author": "Guilerme",
