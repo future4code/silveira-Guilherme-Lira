@@ -7,3 +7,15 @@ const estoque = [
 	{ nome: "Plumbus", quantidade: 13, valorUnitario: 140.44},
 	{ nome: "Pokebola", quantidade: 200, valorUnitario: 99.9915}
 ]
+
+type produto = {nome: string, quantidade: number, valorUnitario: number | string}
+
+const ajustaPreco = (lista: produto[]): produto[] => {
+    return lista.map((item) => {
+        const valorUnitario = item.valorUnitario as number
+        const valorAjustado: string =  valorUnitario.toFixed(2).replace('.', ',')
+        return {...item, valorUnitario: `R$${valorAjustado}`}
+    }).sort((a,b) => a.quantidade - b.quantidade)
+}
+
+console.log(ajustaPreco(estoque))

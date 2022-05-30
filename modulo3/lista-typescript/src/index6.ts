@@ -10,17 +10,18 @@ const dadosBanco = [
 type cliente = {cliente: string, saldoTotal: number, debitos: number[]}
 
 function emprestimo(lista: cliente[]){
-    let debitoTotal:number
-    let novoSaldo:number
+    const devendo = lista.filter((item) => {
+        const debito = item.debitos.reduce((soma, indice) => soma += indice, 0)
+        const saldoFinal = item.saldoTotal - debito;
+        item.saldoTotal = saldoFinal
 
-    const novoBanco = lista.map((dinheiro) => {
-        for (let i=0; i<dinheiro.debitos.length; i++){
-            debitoTotal =+ dinheiro.debitos[i]
+        if (saldoFinal < 0){
+            return true;
+        } else {
+            return false
         }
-        return novoSaldo = dinheiro.saldoTotal - debitoTotal
     })
-
-    return novoBanco
+    return devendo;
 }
 
 console.log(emprestimo(dadosBanco))
