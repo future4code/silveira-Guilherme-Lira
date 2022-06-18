@@ -15,6 +15,7 @@ export const getFullAddress = async (cep: string, numero: number, complemento?: 
             cidade: result.data.localidade,
             estado: result.data.uf
         }
+        
         return address
 
 
