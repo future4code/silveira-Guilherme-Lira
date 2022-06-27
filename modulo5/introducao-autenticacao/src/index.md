@@ -1,146 +1,197 @@
 # INTRODUÇÃO A AUTENTICAÇÃO
 
 #### QUESTÃO 1 
->a) O comando "DROP COLUMN" vai excluir a coluna mencionada logo após ela, no caso do exercício, a coluna "salario" vai ser excluida. 
-~~~SQL
-ALTER TABLE Actor DROP COLUMN salary;
+> a) Utilizar string é melhor do que número pois na string podemos usar a combinação de números e letra, tornando a senha mais complexa e, consequentemente, mais segura.
+
+> b)
+~~~TypeScript
+import { v4 } from "uuid"
+
+const id = v4();
+
+console.log("Generated Id: ", id);
 ~~~
->b) O comando change, neste caso, vai alterar a coluna "gender" para "sex" (uma coluna que já existe) e alterar o número de caractéres da string para 6.
-~~~SQL
-ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
-~~~
->c) Neste caso, como foi repetido o mesmo nome para a coluna, a única coisa que vai ser alterado é o tipo para uma string de 255 caractéres. 
-~~~SQL
-ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
-~~~
->d)
-~~~SQL
-ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
-~~~
+
 #### QUESTÃO 2
->a)  
-~~~SQL
-UPDATE Actor SET name = "Antonio Fagundez", birth_date='2022-02-02' WHERE id = "003";
+> a) O código acima mostra uma funçãoo que cria um usuário, ela recebe um id, um email e uma senha e coloca essas informações na tabela "userTableName"
+
+> b)
+~~~sql
+CREATE TABLE User (
+		id VARCHAR(255) PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
 ~~~
->b)  
-~~~SQL
-UPDATE Actor SET name="JULIANA PAES" WHERE name="Juliana Paes";
-UPDATE Actor SET name="Juliana Paes" WHERE name="JULIANA PAES";
-~~~
->c) 
-~~~SQL
-UPDATE Actor SET name = "Lady Gaga", birth_date = "2022-06-07", salary = 10000045, gender 
-="female" WHERE id = "005";
-~~~
->d) No caso, o programa não alega nenhum erro mas também não chega a fazer nenhuma alteração pois não existe essa query.
-~~~SQL
-UPDATE Actor SET name = "Demi Lovato" WHERE id = "009";
-~~~
+
 #### QUESTÃO 3
->a)
-~~~SQL
-DELETE FROM Actor WHERE name = "Fernanda Montenegro";
+> a) A linha "as string" faz com que o que esteja recebido ali seja do tipo string. 
+
+> b)
+~~~TypeScript
+import * as jwt from "jsonwebtoken";
+
+  const expiresIn = "1min";
+  const generateToken(input: AuthenticationData): string {
+    const token = jwt.sign(
+      {
+        id: input.id,
+      },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn
+      }
+    );
+    return token;
+  }
+}
+
+type AuthenticationData = {
+  id: string;
+}
 ~~~
->b)
-~~~SQL
-DELETE FROM Actor WHERE gender = "male" and salary>1000000;
-~~~
+
 #### QUESTÃO 4
->a)
-~~~SQL
-SELECT max(salary) FROM Actor;
+
+~~~TypeScript
+app.post("/user/signup", async (req: Request, res: Response) => {
+  try {
+    // Item b. Validação do email
+    if (!req.body.email || req.body.email.indexOf("@") === -1) {
+      throw new Error("Invalid email");
+    }
+
+    // Item c. Validação da senha
+    if (!req.body.password || req.body.password.length < 6) {
+      throw new Error("Invalid password");
+    }
+
+    const userData = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+
+    const id = generateId();
+
+  
+    await createUser(id, userData.email, userData.password);
+
+    const token = generateToken({
+      id,
+    });
+
+    res.status(200).send({
+      token,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 ~~~
->b)
-~~~SQL
-SELECT min(salary) FROM Actor where gender='female';
-~~~
->c)
-~~~SQL
-SELECT COUNT(*) FROM Actor WHERE gender='female';
-~~~
->d)
-~~~SQL
-SELECT SUM(salary) FROM Actor
-~~~
+
 #### QUESTÃO 5
->a) O comando vai fazer a contagem dos queries de cada gender e dividir ele em grupos.
-~~~SQL
-SELECT COUNT(*), gender FROM Actor GROUP BY gender
+
+> a)
+~~~TypeScript
+const getUserByEmail = async(email: string): Promise<any> => {
+   const result = await connection
+     .select("*")
+     .from(userTableName)
+     .where({ email });
+
+   return result[0];
+  }
+}
 ~~~
->b)
-~~~SQL
-SELECT id, name FROM Actor ORDER BY name DESC;
-~~~
->c)
-~~~SQL
-SELECT * FROM Actor ORDER BY salary;
-~~~
->d)
-~~~SQL
-SELECT * FROM Actor ORDER BY salary DESC LIMIT 3;
-~~~
->e)
-~~~SQL
-SELECT avg(salary) FROM Actor where gender='female';
-~~~
+
 #### QUESTÃO 6
->a) 
-~~~SQL
-ALTER TABLE Movie ADD playing_limit_date DATE;
+~~~TypeScript
+app.post("/user/login", async (req: Request, res: Response) => {
+  try {
+    // Item b. Validação do email
+    if (!req.body.email || req.body.email.indexOf("@") === -1) {
+      throw new Error("Invalid email");
+    }
+
+    const userData = {
+      email: req.body.email,
+      password: req.body.password,
+    };
+
+
+    const user = await getUserByEmail(userData.email);
+
+    if (user.password !== userData.password) {
+      throw new Error("Invalid password");
+    }
+
+    
+    const token = generateToken({
+      id: user.id,
+    });
+
+    res.status(200).send({
+      token,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 ~~~
->b) 
-~~~SQL
-ALTER TABLE Movie CHANGE rating rating FLOAT;
-~~~
->c) 
-~~~SQL
-UPDATE Movie SET playing_limit_date = current_date() WHERE id = "001";
-UPDATE Movie SET playing_limit_date = "1990-12-24" WHERE id = "002";
-~~~
->d) O comando não mostra nenhum erro mas também não faz nenhuma alteração já que a linha não existe mais. 
-~~~SQL
-DELETE FROM Movie WHERE id = "001";
-UPDATE Movie SET synopsis = "Sinopse de teste" WHERE id = "001";
-~~~
+
 #### QUESTÃO 7
->a) 
-~~~SQL
-SELECT COUNT(*) FROM Movie WHERE rating>7.5;
+> a) "As any" torna o tipo da variável recebida em "any", precisamos utilizá-la para que esse valor seja fácil de manuzear. 
+
+> b)
+~~~ TypeScript
+import * as jwt from "jsonwebtoken";
+
+const getData = (token: string): AuthenticationData => {
+  const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+  const result = {
+    id: payload.id,
+  };
+  return result;
+};
 ~~~
->b) 
-~~~SQL
-SELECT avg(rating) FROM Movie;
-~~~
->c) 
-~~~SQL
-SELECT COUNT(*) FROM Movie;
-~~~
->d) 
-~~~SQL
-SELECT COUNT(*) FROM Movie WHERE playing_limit_date >= curdate();
-~~~
->e) 
-~~~SQL
-SELECT * FROM Movie ORDER BY rating DESC LIMIT 1;
-~~~
->f) 
-~~~SQL
-SELECT * FROM Movie ORDER BY rating ASC LIMIT 1;
-~~~
+
 #### QUESTÃO 8
->a) 
-~~~SQL
-SELECT * FROM Movie ORDER BY title;
+> a)
+~~~ TypeScript
+ public async getUserById(id: string): Promise<any> {
+    const result = await this.connection
+      .select("*")
+      .from(userTableName)
+      .where({ id });
+
+    return result[0];
+  }
+}
 ~~~
->b) 
-~~~SQL
-SELECT * FROM Movie ORDER BY title DESC LIMIT 5;
-~~~
->c) 
-~~~SQL
-SELECT * FROM Movie WHERE release_date < curdate() ORDER BY release_date DESC LIMIT 3;
-~~~
->d) 
-~~~SQL
-SELECT * FROM Movie ORDER BY rating DESC LIMIT 3;
+
+> b)
+~~~ TypeScript
+app.get("/user/profile", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+
+   
+    const authenticationData = getData(token);
+
+    const user = await getUserById(authenticationData.id);
+
+    res.status(200).send({
+      id: user.id,
+      email: user.email,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 ~~~

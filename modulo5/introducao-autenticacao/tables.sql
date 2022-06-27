@@ -1,3 +1,5 @@
+USE `silveira-21814478-guilherme-lira`;
+
 CREATE TABLE IF NOT EXISTS to_do_list_users (
     id VARCHAR(64) PRIMARY KEY,
     name VARCHAR(64) NOT NULL,
