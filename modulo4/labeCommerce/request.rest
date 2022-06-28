@@ -1,0 +1,35 @@
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "tatame",
+    "email": "tatame@gmail.com",
+    "password": "123tatame"
+}
+
+###
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Fígado",
+    "price": 20,
+    "image_url": "tanto faz 4"
+}
+
+###
+GET http://localhost:3003/products
+
+###
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId": "1655568648650",
+    "productId": "1655575841582",
+    "quantity": 5 
+}
