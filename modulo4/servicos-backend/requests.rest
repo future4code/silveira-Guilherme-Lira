@@ -1,0 +1,5 @@
+GET http://localhost:3003/endereco/05424150
+
+###
+
+POST  http://localhost:3003/user/13150132
