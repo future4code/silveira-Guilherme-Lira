@@ -1,0 +1,17 @@
+GET http://localhost:3003/users
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/users:Teacher
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/filterType?type=CX
+Content-Type: application/json
+
+###
+
+GET http://localhost:3003/orderUser?order=ASC
+Content-Type: application/json
