@@ -1,0 +1,24 @@
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+   "name": "Peter Parker", 
+   "email": "peter@oscorp.com" ,
+   "password": "imspiderman",
+   "role": "ADMIN"
+}
+
+#####
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "osbourne@oscorp.com" ,
+   "password": "ihatepeter"
+}
+
+#####
+
+GET http://localhost:3003/user
+Content-Type: application/json
