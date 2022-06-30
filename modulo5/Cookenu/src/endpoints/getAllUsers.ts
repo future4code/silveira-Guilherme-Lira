@@ -4,18 +4,18 @@ import { Authenticator } from "../services/Authenticator";
 
 export async function getAllUsers(req: Request, res: Response){
     try {
-        const token = req.headers.authorization
+        // const token = req.headers.authorization
 
-        if (!token){
-            res.status(422).send("Esse endpoint exige uma autorização a ser passada no headers")
-        }
+        // if (!token){
+        //     res.status(422).send("Esse endpoint exige uma autorização a ser passada no headers")
+        // }
 
         const authenticator = new Authenticator()
-        const tokenData = authenticator.getTokenData(token)
+        // const tokenData = authenticator.getTokenData(token)
 
-        if (tokenData.role !== "ADMIN"){
-            res.status(401).send("somente administradores podem acessar essa funcionalidade")
-        }
+        // if (tokenData.role !== "ADMIN"){
+        //     res.status(401).send("somente administradores podem acessar essa funcionalidade")
+        // }
 
         const userDataBase = new UserDataBase()
         const users = await userDataBase.getAllUser()

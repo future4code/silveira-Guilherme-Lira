@@ -2,18 +2,18 @@ import { User } from "../entities/User";
 import { BaseDataBase } from "./BaseDataBase";
 
 export class UserDataBase extends BaseDataBase {
-    public async getAllUser(): Promise<User[]>{
-        try{
+    public async getAllUser(): Promise<User[]> {
+        try {
             const users = await BaseDataBase.connection('cookenu_users').select('id', 'name', 'email', 'role')
 
             return users.map((user => User.toUserModel(user)))
 
-        } catch (err: any){
+        } catch (err: any) {
             throw new Error(err.sql.message || err.message)
-        }       
+        }
     }
-    
-    public async createuser(user: User): Promise<void>{
+
+    public async createuser(user: User): Promise<void> {
         try {
             await BaseDataBase.connection("cookenu_users").insert({
                 id: user.getId(),
@@ -23,19 +23,32 @@ export class UserDataBase extends BaseDataBase {
                 role: user.getRole()
             });
         } catch (err: any) {
-            throw new Error(err.sql.message || err.message)  
+            throw new Error(err.sql.message || err.message)
         }
     }
 
     public async findUserByEmail(email: string): Promise<User> {
         try {
             const user = await BaseDataBase.connection('cookenu_users').select('*')
-            .where({email});
+                .where({ email });
 
             return user[0] && User.toUserModel(user[0]);
 
-        } catch (err:any){
+        } catch (err: any) {
             throw new Error(err.sql.message || err.message)
         }
     }
+
+    async getUserInformation(id: string): Promise<User> {
+        try {
+            const user = await UserDataBase.connection('cookenu_user').select('id', 'name', 'email')
+                .where("id", id)
+
+            return user[0] && User.toUserModel(user[0]);
+
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
 }

@@ -6,3 +6,12 @@ CREATE TABLE IF NOT EXISTS cookenu_users (
     password varchar(255) NOT NULL,
     role varchar(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS cookenu_recipe (
+    id VARCHAR(64) PRIMARY KEY,
+    title VARCHAR(64) NOT NULL,
+    description VARCHAR(64) NOT NULL,
+    creationDate varchar(255) NOT NULL,
+    userId varchar(255) NOT NULL,
+    FOREIGN KEY (userId) REFERENCES cookenu_users(id)
+);
