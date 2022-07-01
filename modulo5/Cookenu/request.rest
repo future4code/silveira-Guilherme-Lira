@@ -1,3 +1,5 @@
+const token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4YTc1MTk1LTFjYTgtNDVjMC1iYWYyLTZiMmEwMjE4ZWFkOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY1NjY5NjcxMywiZXhwIjoxNjU2Njk2NzEzfQ.Pfwizai9fT1AGuoXovLCgD55PmMwT13h2-xD7FDg1W0
+
 POST http://localhost:3003/user
 Content-Type: application/json
 
@@ -24,11 +26,20 @@ GET http://localhost:3003/user
 Content-Type: application/json
 
 #####
+// CRIAR RECEITA
 
 POST http://localhost:3003/recipe
 Content-Type: application/json
+Authorization: {{}}
 
 {
    "title":"Torta de Limão",
    "description":"Deliciosa torta de limão que vai conquistar o crush."
 }
+
+#####
+// PEGAR INFORMAÇÃO DO USUÁRIO.
+
+GET http://localhost:3003/user/:e8a75195-1ca8-45c0-baf2-6b2a0218ead8
+Content-Type: application/json
+Authorization: {{}}

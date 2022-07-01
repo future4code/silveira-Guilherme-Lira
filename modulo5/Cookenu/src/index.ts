@@ -13,9 +13,9 @@ app.get("/user", getAllUsers)
 // USUÁRIOS
 app.post("/user", signup)
 app.post("/user/login", login)
-app.get("/user/profile", getProfile) // testar
-app.get("/user/:id", getUserById) // testar
+app.get("/user/profile", getProfile) 
+app.get("/user/:id", getUserById) 
 
 // RECEITAS
-app.post("/recipe", createRecipe) // testar
-app.get("/recipe/:id", getRecipeById) // testar
+app.post("/recipe", createRecipe) 
+app.get("/recipe/:id", getRecipeById)
