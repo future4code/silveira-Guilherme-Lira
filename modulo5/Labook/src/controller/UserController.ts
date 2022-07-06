@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import UserBusiness from "../business/UserBusiness";
-import { loginDTO } from "../types/loginDTO";
-import { SignupInputDTO } from "../types/signupDTO";
+import { loginDTO } from "../types/userDTO/loginDTO";
+import { SignupInputDTO } from "../types/userDTO/signupDTO";
 
 export default class UserController {
 

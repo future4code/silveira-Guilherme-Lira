@@ -1,8 +1,8 @@
-import PostData from "../data/postData";
+import PostData from "../data/PostData";
 import Post from "../model/Post";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
-import { creationDTO } from "../types/creationDTO";
+import { creationDTO } from "../types/postDTO/creationDTO";
 
 export default class PostBusiness {
 constructor(
@@ -11,7 +11,8 @@ constructor(
     private authenticator: Authenticator
 ){}
 
-    create = async (input: any, token: string) => {
+    create = async (input: creationDTO, token: string) => {
+        
         const {photo, description, type} = input
 
         if (!photo || !description || !type){
@@ -28,9 +29,22 @@ constructor(
             throw new Error("token inválido.")
         }
 
-       const user = new Post(id, photo, description, creationData, type, tokenData.id)
-
+       const user = new Post(id, photo, description, type, creationData, tokenData.id)
+       console.log(user)
         await this.postData.create(user)
+    }
+
+    findPost = async (id: string, token: string) => {
+
+        const tokenData = this.authenticator.getTokenData(token)
+
+        if (!tokenData) {
+            throw new Error("token inválido.")
+        }
+
+        const post = await this.postData.findById(id)
+
+        return post
     }
 
 }

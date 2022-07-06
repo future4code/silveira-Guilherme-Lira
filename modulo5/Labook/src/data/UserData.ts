@@ -1,5 +1,5 @@
 import User from "../model/User"
-import { FindByEmailResponse } from "../types/findByEmailResponse"
+import { FindByEmailResponse } from "../types/userDTO/findByEmailResponse"
 import { BaseDatabase } from "./BaseDatabase"
 
 export default class UserData extends BaseDatabase {

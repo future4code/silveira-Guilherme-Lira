@@ -1,4 +1,4 @@
-import { POST_TYPES } from "../model/Post"
+import { POST_TYPES } from "../../model/Post"
 
 export type FindByIdResponse = {
      id: string,

@@ -1,5 +1,5 @@
 import Post from "../model/Post"
-import { FindByIdResponse } from "../types/findByIdResponse"
+import { FindByIdResponse } from "../types/postDTO/findByIdResponse"
 import { BaseDatabase } from "./BaseDatabase"
 
 export default class PostData extends BaseDatabase {

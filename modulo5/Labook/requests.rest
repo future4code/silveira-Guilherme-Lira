@@ -2,17 +2,35 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-   "name": "Fabio", 
-   "email": "Fabio@labenu.com",
-   "password": "mynameisFabio"
+   "name": "Danilo", 
+   "email": "Danilo@labenu.com",
+   "password": "mynameisDanilo"
 }
 
 ###
-
+# @name login
 POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-   "email": "Fabio@labenu.com",
-   "password": "mynameisFabio"
+   "email": "Danilo@labenu.com",
+   "password": "mynameisDanilo"
 }
+
+###
+
+POST http://localhost:3003/posts/create
+Content-Type: application/json
+Authorization: {{login.response.body.token}}
+
+{
+   "photo": "Um yorkShire",
+   "description": "Sei nao to so testando",
+   "type": "NORMAL"
+}
+
+###
+
+GET http://localhost:3003/posts/dc728128-f286-4b77-8dde-048d913f6e0e
+Content-Type: application/json
+Authorization: {{login.response.body.token}}

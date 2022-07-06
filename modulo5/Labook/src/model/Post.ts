@@ -8,8 +8,8 @@ export default class Post{
         private id: string,
         private photo: string,
         private description: string,
-        private creationDate: Date,
         private type: POST_TYPES,
-        private userId: string
+        private created_at: Date,
+        private author_id: string
     ){}
 }
