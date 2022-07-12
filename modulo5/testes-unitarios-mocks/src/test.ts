@@ -22,7 +22,7 @@ export const performAttackDirect = (attacker: Character, defender: Character) =>
     const resultCharacter2 = checkCharacter(defender)
 
     if (resultCharacter1 === false || resultCharacter2 === false){
-        return 'Invalid Character!'
+        return 'Invalid character'
     }
 
     if (attacker.power > defender.defense) {
@@ -30,12 +30,15 @@ export const performAttackDirect = (attacker: Character, defender: Character) =>
       }
 }
 
-export const performAttackIndirect = (attacker: Character, defender: Character, validator: (input: Character) => boolean) => {
+export const performAttack = (attacker: Character, defender: Character, validator: (input: Character) => boolean) => {
     if (!validator(attacker) || !validator(defender)) {
-      throw new Error("Invalid Character!");
+      throw new Error("Invalid character");
     }
   
     if (attacker.power > defender.defense) {
       defender.life -= attacker.power - defender.defense;
     }
-  };
+};
+   
+
+
