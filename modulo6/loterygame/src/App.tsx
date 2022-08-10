@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { url } from "./constants/contant";
-import axios from 'axios'
 import Router from "./Routes/Router";
+import { MainPage } from "./style";
+import GlobalStyle from "./globalStyles";
 
 function App() {
+
   return (
-    <div>
+    <MainPage>
+      <GlobalStyle/>
       <Router />
-    </div>
+    </MainPage>
   );
 }
 

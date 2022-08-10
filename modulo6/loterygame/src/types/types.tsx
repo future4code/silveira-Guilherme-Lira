@@ -1,4 +1,9 @@
 export type sorteio = {
-    Id: number,
-    name: string
+    id: number,
+    nome: string
+}
+
+export type concurso = {
+    id: string,
+    data: string
 }
