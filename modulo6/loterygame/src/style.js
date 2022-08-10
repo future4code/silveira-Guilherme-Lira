@@ -122,32 +122,31 @@ export const Circle = styled.div`
     
      h1 {
         align-items: center;
+        align-content: center;
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
         font-size: 27px;
         line-height: 33px;
-        margin: auto;
+        margin-left: 20px;
         width: 50%;
-        padding: 10px;
+        padding: 20px;
     } 
 `
 
 export const ConcursoText = styled.div`
-
     left: 96px;
     position: absolute;
     left: 6%;
     right: 84.83%;
-top: 86.76%;
-bottom: 11.84%;
-
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 17px;
-letter-spacing: 0.135em;
+    top: 86.76%;
+    bottom: 11.84%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.135em;
 `
 export const IdDate = styled.div`
     position: absolute;
@@ -164,9 +163,16 @@ export const IdDate = styled.div`
 `
 
 export const Select = styled.select`
-    height: 45.203941345214844px;
-    width: 215.90667724609375px;
+    height: 45px;
+    width: 215px;
     left: 96px;
     top: 92px;
     border-radius: 0px;
+    position: absolute;
+    left: 6%;
+    right: 80.51%;
+    top: 8.52%;
+    bottom: 87.3%;
+    border-radius: 10px;
+
 `

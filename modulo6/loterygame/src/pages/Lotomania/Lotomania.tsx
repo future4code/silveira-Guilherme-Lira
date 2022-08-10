@@ -88,8 +88,7 @@ export const Lotomania = () => {
 
                 <MegaTitle> LOTOMANIA </MegaTitle>
                 <ConcursoText> CONCURSO </ConcursoText>
-                <IdDate>{concursoId} <br></br>
-                    {concursoDate}</IdDate>
+                <IdDate>{concursoId} - {concursoDate}</IdDate>
             </LeftContainerLotomania>
 
             <RightContainer>
