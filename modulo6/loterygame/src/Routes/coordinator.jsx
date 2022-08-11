@@ -1,23 +1,27 @@
-export const goToMega = (navigate) => {
-    navigate('/mega')
+export const goToPage = (navigate, page) => {
+    navigate(`/${page}`)
 }
 
-export const goToQuina = (navigate) => {
-    navigate('/quina')
+export const goBack = (navigate) => {
+    navigate(-1)
 }
 
-export const goToFacil = (navigate) => {
-    navigate('/lotofacil')
-}
+// export const goToQuina = (navigate) => {
+//     navigate('/quina')
+// }
 
-export const goToMania = (navigate) => {
-    navigate('/lotomania')
-}
+// export const goToFacil = (navigate) => {
+//     navigate('/lotofacil')
+// }
 
-export const goToTime = (navigate) => {
-    navigate('/timemania')
-}
+// export const goToMania = (navigate) => {
+//     navigate('/lotomania')
+// }
 
-export const goToSorte = (navigate) => {
-    navigate(`/diasorte`)
-}
+// export const goToTime = (navigate) => {
+//     navigate('/timemania')
+// }
+
+// export const goToSorte = (navigate) => {
+//     navigate(`/diasorte`)
+// }

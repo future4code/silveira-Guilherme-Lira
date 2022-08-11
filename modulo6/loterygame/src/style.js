@@ -9,18 +9,20 @@ export const MainPage = styled.div`
 
 export const LeftContainer = styled.div`
     display: flex;
-    height: 1080px;
+    height: 100vh;
     width: 613px;
     left: 0%;
     right: 61.69%;
     top: 0%;
     bottom: 0%;
     background-color: #6BEFA3;
+    align-items: center;
+    justify-content: center;
 `
 
 export const LeftContainerQuina = styled.div`
     display: flex;
-    height: 1080px;
+    height: 100vh;
     width: 613px;
     left: 0%;
     right: 61.69%;
@@ -31,7 +33,7 @@ export const LeftContainerQuina = styled.div`
 
 export const LeftContainerLoto = styled.div`
     display: flex;
-    height: 1080px;
+    height: 100vh;
     width: 613px;
     left: 0%;
     right: 61.69%;
@@ -41,7 +43,7 @@ export const LeftContainerLoto = styled.div`
 `
 export const LeftContainerLotomania = styled.div`
     display: flex;
-    height: 1080px;
+    height: 100vh;
     width: 613px;
     left: 0%;
     right: 61.69%;
@@ -51,7 +53,7 @@ export const LeftContainerLotomania = styled.div`
 `
 export const LeftContainerTime = styled.div`
     display: flex;
-    height: 1080px;
+    height: 100vh;
     width: 613px;
     left: 0%;
     right: 61.69%;
@@ -62,7 +64,7 @@ export const LeftContainerTime = styled.div`
 
 export const LeftContainerSorte = styled.div`
     display: flex;
-    height: 1080px;
+    height: 100vh;
     width: 613px;
     left: 0%;
     right: 61.69%;
@@ -73,15 +75,14 @@ export const LeftContainerSorte = styled.div`
 
 export const RightContainer = styled.div`
     display: flex;
-    height: 1080px;
-    width: 1200px;
+    flex: 1 10 10%;
     margin-left: 50px;
-    /* left: 61.69%; */
     right: 0%;
     top: 0%;
     bottom: 0%;
     align-items: center;
-    /* justify-content: space-between; */
+    flex-wrap: wrap;
+    justify-content: center;
 
     p {
         position: absolute;
@@ -97,6 +98,8 @@ export const RightContainer = styled.div`
         color: #000000;
     }
 `
+
+
 export const MegaTitle = styled.p`
     position: absolute;
     left: 11.11%;
@@ -113,24 +116,45 @@ export const MegaTitle = styled.p`
 
 export const Circle = styled.div`
     display: flex;
-    
     flex-direction: row;
     background: white;
     border-radius: 50%;
     height: 106px;
     width: 111px;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 70px;
+        font-size: 27px;
+        line-height: 33px;
+        width: 50%;
+        padding: 0px;
+        margin: 0px;
+    } 
+`
+
+export const CircleMania = styled.div`
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 50%;
+    height: 53px;
+    width: 55,5px;
     
      h1 {
         align-items: center;
         align-content: center;
         font-family: 'Montserrat';
         font-style: normal;
-        font-weight: 700;
+        font-weight: 700px;
         font-size: 27px;
         line-height: 33px;
-        margin-left: 20px;
+        margin-left: 5px;
         width: 50%;
-        padding: 20px;
+        padding: 5px;
     } 
 `
 

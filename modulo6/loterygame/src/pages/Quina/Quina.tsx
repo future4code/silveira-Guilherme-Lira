@@ -1,6 +1,9 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { SelectOptionsComboBox } from "../../component/SelectOptionsComboBox"
 import { url } from "../../constants/contant"
+import { goToPage } from "../../Routes/coordinator"
 import { Circle, LeftContainerQuina, RightContainer, MainPage, MegaTitle, ConcursoText, IdDate, Select } from "../../style"
 import { concurso, sorteio } from "../../types/types"
 
@@ -12,6 +15,8 @@ export const Quina = () => {
     const [numbers, setNumbers] = useState([])
     const [concursoId, setConcursoId] = useState('')
     const [concursoDate, setConcursoDate] = useState('')
+    const [selectOptions, setSelectOptions] = useState('')
+    const navigate = useNavigate()
 
     const getLoteria = () => {
         axios.get(`${url}/loterias`)
@@ -53,16 +58,19 @@ export const Quina = () => {
     }
 
     useEffect(() => {
+        getLoteria()
         getLoteriaConcurso()
-    }, [])
-
-    useEffect(() => {
         getConcursoId(5534)
     }, [])
 
-    const numbersSorted = numbers.length > 0 && numbers.map((number: number[]) => {
+    // useEffect(() => {
+    //     goToPage(navigate, selectOptions)
+    // }, [selectOptions])
+
+
+    const numbersSorted = numbers.length > 0 && numbers.map((number: number[], index) => {
         return (
-            <RightContainer>
+            <RightContainer key={index}>
                 <Circle>
                     <h1>{number}</h1>
                 </Circle>
@@ -72,7 +80,8 @@ export const Quina = () => {
 
     const opcoesLoterias = loteria.length > 0 && loteria.map((loteria: sorteio) => {
         return (
-            <option key={loteria.id} value={loteria.id}>
+            <option key={loteria.id} value={loteria.nome.replace(/\s/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+        }>
                 {loteria.nome}
             </option>
         );
@@ -82,10 +91,6 @@ export const Quina = () => {
     return (
         <MainPage>
             <LeftContainerQuina>
-                <Select name="valueSelect">
-                    <option value="">Escolha uma loteria:</option>
-                    {opcoesLoterias}
-                </Select>
 
                 <MegaTitle> QUINA </MegaTitle>
                 <ConcursoText> CONCURSO </ConcursoText>
