@@ -28,7 +28,10 @@ Projeto final do curso de Front-End da Labenu. A ideia foi desenvolver um aplica
  - Pedido e Confirmação com detalhes do pedido. 
  - Perfil com dados do cliente.
  - Meu Carrinho com informações dos pedidos, quantidade de itens, formas de pagamentos e valores.
-
+ 
+ # 📋 Link no Surge
+ 
+ Link do Surge: lira-ifood.surge.sh
 
 # 💻 Funcionalidades
 
